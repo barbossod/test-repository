@@ -13,10 +13,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'BarBossDeliverySecretKey_3FT5-2G78-3AT1-8TI8'
 api = Api(app)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 jwt = JWT(app, authenicate, identity) #/auth
 
 api.add_resource(Item, '/item/<string:name>')
